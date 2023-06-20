@@ -36,9 +36,10 @@ while (iniciar == "SI" || iniciar != "SALIR") {
 alert("Gracias por participar en el censo");*/
 
 
-alert("Bienvenido a CoderHouse, aca encontrara los alumnos de la cursada y sus notas finales. ingrese su nombre, apellido, nota de la ultima evaluacion y curso");
 
-class alumno {
+alert("Bienvenido a CoderHouse, aquí encontrará los alumnos de la cursada y sus notas finales. Ingrese su nombre, apellido, nota de la última evaluación y curso");
+
+class Alumno {
     constructor(nombre, apellido, nota, curso) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -46,64 +47,69 @@ class alumno {
         this.curso = curso;
     }
     getNombre() {
-        return this.nombre
+        return this.nombre;
     }
     getApellido() {
-        return this.apellido
+        return this.apellido;
     }
     getNota() {
-        return this.nota
+        return this.nota;
     }
     getCurso() {
-        return this.curso
+        return this.curso;
     }
-
 }
 
 function solicitarNombre() {
-    const nombre = prompt("ingrese su nombre y apellido: ");
+    const nombre = prompt("Ingrese su nombre y apellido: ");
     return nombre;
 }
 
-
 function solicitarNota() {
-    const nota = prompt("ingrese su nota: ")
+    const nota = prompt("Ingrese su nota: ");
+    return nota;
 }
 
-
 function solicitarCurso() {
-    const curso = prompt("ingrese su curso: ")
+    const curso = prompt("Ingrese su curso: ");
+    return curso;
 }
 
 const alumnos = [];
-const notas = [1,2,3,4,5,6,7,8,9,10];
-console.log(Math.max(...notas) + " Para promocionar debes sacar una nota mayor a 7")
+const notas = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(Math.max(...notas) + " Para promocionar debes sacar una nota mayor a 7");
 
-const curso = [
+const cursos = [
     { nombre: 'JS' },
     { nombre: 'DW' },
     { nombre: 'Marketing' }
-]
+];
 
-const resultado = curso.find((el) === el.nombre === 'JS')
-const resultado1 = curso.find((el) === el.nombre === 'DW')
-const resultado2 = curso.find((el) === el.nombre === 'Marketing')
-
-
-personas.forEach((alumno) => {
-    console.log(get.nombre, get.apellido, get.nota, get.curso)
-})
+const resultado = cursos.find((el) => el.nombre === 'JS');
+const resultado1 = cursos.find((el) => el.nombre === 'DW');
+const resultado2 = cursos.find((el) => el.nombre === 'Marketing');
 
 
-if (notas >= 7) {
-    alert("usted esta aprobado, felicitaciones " + nombre + apellido)
-} else if (notas <= 6 || notas >= 4) {
-    alert("usted reprobo pero puede volver a entregar" + nombre + cursos)
+alumnos.forEach((alumno) => {
+    console.log(alumno.getNombre(), alumno.getApellido(), alumno.getNota(), alumno.getCurso());
+});
+
+const nombre = solicitarNombre();
+const nota = solicitarNota();
+const curso = solicitarCurso();
+
+const nuevoAlumno = new Alumno(nombre, apellido, nota, curso);
+alumnos.push(nuevoAlumno);
+
+if (nota >= 7) {
+    alert("Usted está aprobado, felicitaciones " + nombre + " " + apellido);
+} else if (nota <= 6 && nota >= 4) {
+    alert("Usted reprobó pero puede volver a entregar " + nombre + " " + curso);
 } else {
-    alert("usted saco una calificacion menor a 4. Debe volver a realizar el curso" + nombre + cursos)
+    alert("Usted sacó una calificación menor a 4. Debe volver a realizar el curso " + nombre + " " + curso);
 }
 
 const generarPromedio = () => {
-    console.log(Math.ceil(notas))
-}
+    console.log(Math.ceil(notas));
+};
 
